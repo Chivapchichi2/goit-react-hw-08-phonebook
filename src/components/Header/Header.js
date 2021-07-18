@@ -1,9 +1,19 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
+import AuthNav from './AuthNav';
 import styles from './Header.module.css';
 
 const Header = () => (
   <header className={styles.Header}>
-    <h1>react hw-03 phone book</h1>
+    <ul>
+      <li>
+        <NavLink to="/">Home</NavLink>
+      </li>
+      <li>
+        <NavLink to="/contacts">Contacts</NavLink>
+      </li>
+    </ul>
+    <AuthNav />
   </header>
 );
 
