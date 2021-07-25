@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
+
 import authOperations from '../../redux/auth/auth-operations';
 
 class Register extends Component {
@@ -59,6 +61,10 @@ class Register extends Component {
     );
   }
 }
+
+Register.propTypes = {
+  onSubmit: PropTypes.func.isRequired,
+};
 
 const mapDispatchToProps = {
   onSubmit: authOperations.register,

@@ -1,4 +1,8 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
+
+import authOperations from '../../redux/auth/auth-operations';
 
 class Login extends Component {
   state = {
@@ -12,7 +16,7 @@ class Login extends Component {
 
   handleSubmit = e => {
     e.preventDefault();
-
+    this.props.onSubmit(this.state);
     this.setState({ email: '', password: '' });
   };
 
@@ -48,4 +52,12 @@ class Login extends Component {
   }
 }
 
-export default Login;
+Login.propTypes = {
+  onSubmit: PropTypes.func.isRequired,
+};
+
+const mapDispatchToProps = {
+  onSubmit: authOperations.login,
+};
+
+export default connect(null, mapDispatchToProps)(Login);
