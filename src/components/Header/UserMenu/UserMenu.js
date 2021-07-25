@@ -1,19 +1,28 @@
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import authOperations from '../../../redux/auth/auth-operations';
 import authSelectors from '../../../redux/auth/auth-selectors';
 
-const UserMenu = ({ name }) => (
-  <ul>
-    <li>Welcome {name}</li>
-  </ul>
+const UserMenu = ({ name, onLogout }) => (
+  <div>
+    <span>Welcome, {name}</span>
+    <button type="button" onClick={onLogout}>
+      Logout
+    </button>
+  </div>
 );
 
 UserMenu.propTypes = {
   name: PropTypes.string.isRequired,
+  onLogout: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = state => ({
   name: authSelectors.getUserName(state),
 });
 
-export default connect(mapStateToProps)(UserMenu);
+const mapDispatchToProps = {
+  onLogout: authOperations.logout,
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(UserMenu);

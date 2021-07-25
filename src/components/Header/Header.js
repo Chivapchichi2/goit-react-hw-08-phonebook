@@ -21,9 +21,11 @@ const Header = ({ isAuthenticated }) => (
     {isAuthenticated ? <UserMenu /> : <AuthNav />}
   </header>
 );
-
+Header.defaultProps = {
+  isAuthenticated: '',
+};
 Header.propTypes = {
-  isAuthenticated: PropTypes.func.isRequired,
+  isAuthenticated: PropTypes.string,
 };
 
 const mapStateToProps = state => ({
