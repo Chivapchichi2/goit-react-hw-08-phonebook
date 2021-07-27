@@ -1,5 +1,5 @@
 import axios from 'axios';
-import actions from './contacts-actions';
+import contactsActions from './contacts-actions';
 
 const {
   fetchItemsRequest,
@@ -11,7 +11,7 @@ const {
   deleteItemRequest,
   deleteItemSuccess,
   deleteItemError,
-} = actions;
+} = contactsActions;
 
 const fetchContacts = () => async dispatch => {
   dispatch(fetchItemsRequest());
