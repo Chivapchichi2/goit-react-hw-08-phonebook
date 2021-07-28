@@ -14,18 +14,22 @@ const Header = ({ isAuthenticated }) => (
       <li>
         <NavLink to="/">Home</NavLink>
       </li>
-      <li>
-        <NavLink to="/contacts">Contacts</NavLink>
-      </li>
+      {isAuthenticated && (
+        <li>
+          <NavLink to="/contacts">Contacts</NavLink>
+        </li>
+      )}
     </ul>
     {isAuthenticated ? <UserMenu /> : <AuthNav />}
   </header>
 );
+
 Header.defaultProps = {
-  isAuthenticated: '',
+  isAuthenticated: false,
 };
+
 Header.propTypes = {
-  isAuthenticated: PropTypes.string,
+  isAuthenticated: PropTypes.bool,
 };
 
 const mapStateToProps = state => ({
