@@ -10,13 +10,26 @@ import styles from './Header.module.css';
 
 const Header = ({ isAuthenticated }) => (
   <header className={styles.Header}>
-    <ul>
+    <ul className={styles.list}>
       <li>
-        <NavLink to="/">Home</NavLink>
+        <NavLink
+          exact
+          to="/"
+          className={styles.link}
+          activeClassName={styles.activeLink}
+        >
+          Home
+        </NavLink>
       </li>
       {isAuthenticated && (
         <li>
-          <NavLink to="/contacts">Contacts</NavLink>
+          <NavLink
+            to="/contacts"
+            className={styles.link}
+            activeClassName={styles.activeLink}
+          >
+            Contacts
+          </NavLink>
         </li>
       )}
     </ul>

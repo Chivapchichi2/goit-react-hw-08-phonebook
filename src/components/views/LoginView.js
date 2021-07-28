@@ -4,6 +4,8 @@ import PropTypes from 'prop-types';
 
 import authOperations from '../../redux/auth/auth-operations';
 
+import styles from './LoginView.module.css';
+
 class Login extends Component {
   state = {
     email: '',
@@ -23,11 +25,15 @@ class Login extends Component {
   render() {
     const { email, password } = this.state;
     return (
-      <main>
+      <div className={styles.Login}>
         <h1>Login</h1>
         <p>Please, fill the form</p>
-        <form onSubmit={this.handleSubmit} autoComplete="off">
-          <label>
+        <form
+          onSubmit={this.handleSubmit}
+          autoComplete="off"
+          className={styles.form}
+        >
+          <label className={styles.label}>
             Email
             <input
               type="email"
@@ -36,7 +42,7 @@ class Login extends Component {
               onChange={this.handleChange}
             />
           </label>
-          <label>
+          <label className={styles.label}>
             Password
             <input
               type="password"
@@ -45,9 +51,11 @@ class Login extends Component {
               onChange={this.handleChange}
             />
           </label>
-          <button type="submit">Login</button>
+          <button type="submit" className={styles.button}>
+            Login
+          </button>
         </form>
-      </main>
+      </div>
     );
   }
 }

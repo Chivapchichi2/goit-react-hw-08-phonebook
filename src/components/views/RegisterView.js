@@ -4,6 +4,8 @@ import PropTypes from 'prop-types';
 
 import authOperations from '../../redux/auth/auth-operations';
 
+import styles from './RegisterView.module.css';
+
 class Register extends Component {
   state = {
     name: '',
@@ -24,11 +26,15 @@ class Register extends Component {
   render() {
     const { name, email, password } = this.state;
     return (
-      <main>
+      <div className={styles.Register}>
         <h1>Registration</h1>
         <p>Please, fill the form</p>
-        <form onSubmit={this.handleSubmit} autoComplete="off">
-          <label>
+        <form
+          onSubmit={this.handleSubmit}
+          autoComplete="off"
+          className={styles.form}
+        >
+          <label className={styles.label}>
             Name
             <input
               type="text"
@@ -37,7 +43,7 @@ class Register extends Component {
               onChange={this.handleChange}
             />
           </label>
-          <label>
+          <label className={styles.label}>
             Email
             <input
               type="email"
@@ -46,7 +52,7 @@ class Register extends Component {
               onChange={this.handleChange}
             />
           </label>
-          <label>
+          <label className={styles.label}>
             Password
             <input
               type="password"
@@ -55,9 +61,11 @@ class Register extends Component {
               onChange={this.handleChange}
             />
           </label>
-          <button type="submit">Register</button>
+          <button type="submit" className={styles.button}>
+            Register
+          </button>
         </form>
-      </main>
+      </div>
     );
   }
 }
