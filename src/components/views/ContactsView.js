@@ -18,8 +18,6 @@ const Contacts = ({ filter, items, dispatch, loading }) => {
   const filteredContacts = items
     .filter(item => item.name.toLowerCase().includes(cleanFilter))
     .sort((a, b) => a.name.localeCompare(b.name));
-  // eslint-disable-next-line
-  debugger;
   return (
     <>
       <Section title="Phone book">
