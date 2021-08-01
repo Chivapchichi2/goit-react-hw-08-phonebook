@@ -21,7 +21,7 @@ class ContactForm extends Component {
     const { name } = this.state;
     const { items } = this.props;
     const nameToLowerCase = name.toLowerCase();
-    if (items.some(item => item.name === nameToLowerCase)) {
+    if (items.some(item => item.name.toLowerCase() === nameToLowerCase)) {
       // eslint-disable-next-line
       return alert(
         `${nameToLowerCase
